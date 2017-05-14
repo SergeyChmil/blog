@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row justify-content-center" id="notes-container" appMatchHeight="inactive" appRestoreHeight="active">
+    <app-note #noteElement *ngFor="let note of notes$"
+              [_context]="note" [_connector]="notesConnector"
+              [@noteExpand]="noteElement.state"
+              [style.order]="noteElement.order" [style.z-index]="noteElement.order"
+    ></app-note>
+  </div>
+</div>

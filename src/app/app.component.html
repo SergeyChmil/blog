@@ -1,3 +1,49 @@
-<h1>
-  {{title}}
-</h1>
+<div class="total-container" (window:resize)="calculateWindowWidth()">
+  <div class="container">
+    <!----
+    TOP IMAGE & NAVIGATION PANEL
+    ----->
+    <div class="container top-image pl-0 pr-0"></div>
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse my-navbar">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">ЗАМЕТКИ</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav navbar-nav navbar-right">
+          <li #menuItem class="nav-item" *ngFor="let mItem of lists$; let i=index" [ngClass]="{active: i == selectedMenuItem} "
+                                (click)="onSelectMenuItem(i)">
+            <a class="nav-link">{{mItem}}</a>
+          </li>
+        </ul>
+        <!--- TODO: добавить отображение кнопки только при входе с админ правами ---->
+        <ul class="nav navbar-nav navbar-right">
+          <!--- TODO: если openBlankModal() будет вызываться из разных компонентов, то его надо вынести в отдельный класс,который будет импортироваться в компоненты и иметь эту функцию публичным методом---->
+          <li class="nav-item active" (click)="openBlankModal()">
+            <a class="nav-link">Админка</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!----
+      CONTENT change to router outlet later
+    ----->
+    <app-notes-dashboard appWindowRuler></app-notes-dashboard>
+    <!----
+      FOOTER
+    ----->
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted text-right">Footer text is placed here</p>
+      </div>
+    </footer>
+
+    <app-modal></app-modal>
+
+
+  </div>
+</div>

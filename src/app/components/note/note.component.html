@@ -1,0 +1,25 @@
+<div class="card my-card" [ngClass]={active:isActive,inactive:!isActive} [attr.id]="'note' + _context.id"
+     (click)="onClick()">
+  <img id='onePhotoContainer' class="rounded card-img-top" [attr.src]="_context.images[0] | imagePath: 'path' "
+       [attr.alt]="_context.images[0] | imagePath: 'alt_text'"
+       *ngIf="isActive && _context.images | photosNumber: 'isOne' "/>
+  <div class="horizontal-divider" *ngIf="isActive && _context.images "></div>
+  <div class="card-block">
+    <div [attr.id]="'header' + _context.id" class="my-card-header" [ngClass]="getIconClass()" >
+      <h4 class="card-title ">{{_context.header}}</h4>
+    </div>
+    <p class="card-text" *ngIf="isActive">{{_context.body}}</p>
+    <p class="card-text" *ngIf="!isActive">{{_context | makeShortText}}</p>
+    <button type="button" class="btn btn-link link-pointer" *ngIf="!isActive">{{ctaBtnText}}</button>
+
+    <div class="row justify-content-end note-buttons" *ngIf="isActive">
+      <i class="material-icons comment">insert_comment</i>
+      <i class="material-icons">mode_edit</i>
+      <i class="material-icons" (click)="onDeleteClick()">delete</i>
+    </div>
+
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">{{_context.date}}</small>
+  </div>
+</div>
