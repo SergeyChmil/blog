@@ -3,7 +3,7 @@
     <app-note #noteElement *ngFor="let note of notes$"
               [_context]="note" [_connector]="notesConnector"
               [@noteExpand]="noteElement.state"
-              [style.order]="noteElement.order" [style.z-index]="noteElement.order"
+              [style.order]="noteElement.order" [style.z-index]="noteElement.order" [_icon]="getCityName(note.city)"
     ></app-note>
   </div>
 </div>

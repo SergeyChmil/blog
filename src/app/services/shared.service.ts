@@ -6,7 +6,7 @@ import {Note} from '../classes/Note';
 @Injectable()
 export class SharedService {
 
-  public modalConnector: Subject<string> = new Subject();
+  public modelCloseProvider: Subject<string> = new Subject();
   public modalCreatePostProvider: Subject<Note> = new Subject();
   public windowWidthProvider: Subject<number> = new Subject();
   public activeNoteProvider: Subject<number> = new Subject();

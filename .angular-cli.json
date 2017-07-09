@@ -20,7 +20,9 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.css"
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../node_modules/bootstrap-social-gh-pages/bootstrap-social-gh-pages/bootstrap-social.css",
+        "../node_modules/bootstrap-social-gh-pages/bootstrap-social-gh-pages/assets/css/font-awesome.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",

@@ -1,12 +1,12 @@
-<div class="card my-card" [ngClass]={active:isActive,inactive:!isActive} [attr.id]="'note' + _context.id"
+<div class="card my-card" [ngClass]={active:isActive,inactive:!isActive} [attr.id]="'note' + _context.pk"
      (click)="onClick()">
   <img id='onePhotoContainer' class="rounded card-img-top" [attr.src]="_context.images[0] | imagePath: 'path' "
        [attr.alt]="_context.images[0] | imagePath: 'alt_text'"
        *ngIf="isActive && _context.images | photosNumber: 'isOne' "/>
   <div class="horizontal-divider" *ngIf="isActive && _context.images "></div>
   <div class="card-block">
-    <div [attr.id]="'header' + _context.id" class="my-card-header" [ngClass]="getIconClass()" >
-      <h4 class="card-title ">{{_context.header}}</h4>
+    <div [attr.id]="'header' + _context.pk" class="my-card-header" [ngClass]="getIconClass()" >
+      <h4 class="card-title ">{{_context.name}}</h4>
     </div>
     <p class="card-text" *ngIf="isActive">{{_context.body}}</p>
     <p class="card-text" *ngIf="!isActive">{{_context | makeShortText}}</p>

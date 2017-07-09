@@ -3,7 +3,7 @@ export const environment = {
   dataURL: 'http://localhost:3000',
   menuKey: '/menu/',
   notesKey: '/notes/',
-  iconsKey:'/icons/',
+  cityKey:'/icons/',
   iconsImageKey: 'assets/images/icons/',
   commentsKey: '/comments',
   appImagesURL: '',

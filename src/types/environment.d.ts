@@ -3,7 +3,7 @@ type env = {
   dataURL: string,
   menuKey: string,
   notesKey: string,
-  iconsKey: string,
+  cityKey: string,
   iconsImageKey: string,
   commentsKey: string,
   appImagesURL: string,

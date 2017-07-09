@@ -5,17 +5,28 @@ export interface INoteImage {
 }
 
 export interface INote {
-  id: number;
-  icon: string;
-  region: string;
-  header: string;
-  date: string;
+  pk: number;
+  city: string;
+  region: number;
+  name: string;
+  publication_date: string;
   body: string;
-  shortBody?: string;
+  // shortBody?: string;
   images?: INoteImage[];
 }
 
-export interface IIcons{
-  china: string[],
-  world: string[]
+// export interface IIcons {
+//   china: string[],
+//   world: string[]
+// }
+
+export interface IRegion {
+  pk: number;
+  name: string;
+}
+
+export interface ICity {
+  pk: number;
+  region: IRegion;
+  name: string;
 }

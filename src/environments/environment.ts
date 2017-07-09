@@ -5,12 +5,12 @@
 
 export const environment = {
   production: false,
-  dataURL: 'http://localhost:3000',
-  menuKey: '/menu/',
-  notesKey: '/notes/',
-  iconsKey:'/icons/',
+  dataURL: 'http://localhost:8000/api/',
+  menuKey: 'regions/',
+  notesKey: 'posts/',
+  cityKey:'cities/',
   iconsImageKey: 'assets/images/icons/',
-  commentsKey: '/comments',
+  commentsKey: 'comments',
   appImagesURL: '../../../assets/images/notes_illustrations/',
   userImagesURL: '',
   pngKey: '.png'

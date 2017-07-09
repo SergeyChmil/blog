@@ -1,0 +1,70 @@
+<!--<div class="container" >-->
+<div class="card ">
+<div class="card-header">
+  <h3 class="text-center">Ура! Новая история!</h3>
+</div>
+<div class="card-body add-post-modal">
+  <!-- Right of the bat, we no longer declare a local variable but use the formGroup directive and set it the complexForm object we defined in the constructor. Throughout the form, we will reference the complexForm root object as can be seen in the submitForm function.-->
+  <form [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+
+    <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['name'].valid && complexForm.controls['name'].touched}">
+      <label for="postHeader" class="col-3 col-form-label">Заголовок</label>
+      <div class="col-9">
+        <input formControlName="name" type="text" class="form-control" id="postHeader" rows="3"
+               placeholder="Название истории..." (change)="onChangeValue()" [formControl]="complexForm.controls['name']"/>
+      </div>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['body'].valid && complexForm.controls['body'].touched}">
+      <label for="postBody" class="col-3 col-form-label">Текст</label>
+      <div class="col-12">
+    <textarea formControlName="body" class="form-control" id="postBody" rows="7"
+              placeholder="Здесь будет новый чудесный пост..." (change)="onChangeValue()" [formControl]="complexForm.controls['body']"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['publication_date'].valid && complexForm.controls['publication_date'].touched}">
+      <label for="example-date-input" class="col-3 col-form-label">Когда опубликовать?</label>
+      <div class="col-9">
+        <input formControlName="publication_date" class="form-control" type="date" id="example-date-input"
+               (change)="onChangeValue()" [formControl]="complexForm.controls['publication_date']">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <form enctype="multipart/form-data" method="post">
+      <label class="col-3 col-form-label">Выберите картинку</label>
+      <div class="col-9">
+        <input #fileInput (change)="updatePhoto($event)" class="form-control" type="file" name="f" id="image-input">
+        <button (click)="addFile()" value="Загрузить">Add</button>
+        <!--<button (click)="addFile()" value="Загрузить">Add</button>-->
+      </div>
+      </form>
+    </div>
+
+    <div class="form-group">
+      <label class="mr-sm-2" for="inlineFormCustomSelect">Иконка</label>
+
+      <select formControlName="city" class="custom-select" id="inlineFormCustomSelect" (change)="onChangeValue()" [formControl]="complexForm.controls['city']">
+        <option *ngFor="let option of params"
+                [ngClass]="{'icons-china-group': option.region==1, 'icons-world-group': option.region==2}"
+                [ngValue]="option.pk">
+          {{option.name}}
+        </option>
+      </select>
+
+      <div class="alert alert-danger" *ngIf="!complexForm.controls['city'].valid && complexForm.controls['city'].touched">Надо выбрать иконку!</div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-sm" [disabled]="!complexForm.valid">Submit</button>
+      <button class="btn btn-danger btn-sm" (click)="onCancelClick()">ОТМЕНИТЬ</button>
+    </div>
+  </form>
+</div>
+
+<div class="card-footer text-muted text-center">
+  <app-icon-button [type]="'unicorn'" [size]="'md'"></app-icon-button>
+</div>
+<!--</div>-->
+</div>

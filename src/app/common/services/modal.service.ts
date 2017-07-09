@@ -6,8 +6,8 @@ export class ModalService {
 
   private _modalSequence$$: Subject<any> = new Subject();
 
-  public open(component: {component:any, context:any}):void{
-    console.log('service open')
+  public open(component: {component:any, context:any, params:any[]}):void{
+    // console.log('service open')
     this._modalSequence$$.next(component)
   }
 

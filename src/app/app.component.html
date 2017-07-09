@@ -11,39 +11,60 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="#">ЗАМЕТКИ</a>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarLeft">
         <ul class="nav navbar-nav navbar-right">
-          <li #menuItem class="nav-item" *ngFor="let mItem of lists$; let i=index" [ngClass]="{active: i == selectedMenuItem} "
-                                (click)="onSelectMenuItem(i)">
-            <a class="nav-link">{{mItem}}</a>
-          </li>
-        </ul>
-        <!--- TODO: добавить отображение кнопки только при входе с админ правами ---->
-        <ul class="nav navbar-nav navbar-right">
-          <!--- TODO: если openBlankModal() будет вызываться из разных компонентов, то его надо вынести в отдельный класс,который будет импортироваться в компоненты и иметь эту функцию публичным методом---->
-          <li class="nav-item active" (click)="openBlankModal()">
-            <a class="nav-link">Админка</a>
+          <li #menuItem class="nav-item" *ngFor="let mItem of regions$; let i=index"
+              [ngClass]="{active: i == selectedRegionIndex} "
+              (click)="onMenuClickHandler(i)">
+            <a class="nav-link">{{mItem.name}}</a>
           </li>
         </ul>
       </div>
+      <!--<div class="collapse navbar-collapse" id="navbarRight">-->
+      <!---->
+      <!--</div>-->
+
+      <form class="form-inline my-2 my-lg-0">
+        <!--- TODO: добавить отображение кнопки только при входе с админ правами ---->
+        <ul class="nav navbar-nav navbar-left pull-right">
+          <!--- TODO: если openAddModal() будет вызываться из разных компонентов, то его надо вынести в отдельный класс,который будет импортироваться в компоненты и иметь эту функцию публичным методом---->
+          <li class="nav-item active" (click)="openAddModal()">
+            <div class="row justify-content-end note-buttons">
+              <i class="material-icons app_btn invert_color_theme">note_add</i>
+            </div>
+          </li>
+        </ul>
+        <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">-->
+        <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+      </form>
     </nav>
 
     <!----
       CONTENT change to router outlet later
     ----->
-    <app-notes-dashboard appWindowRuler></app-notes-dashboard>
-    <!----
-      FOOTER
-    ----->
-
-    <footer class="footer">
-      <div class="container">
-        <p class="text-muted text-right">Footer text is placed here</p>
-      </div>
-    </footer>
-
-    <app-modal></app-modal>
+    <app-notes-dashboard appWindowRuler [notes$]="notes$" [cities$]="cities$"></app-notes-dashboard>
 
 
   </div>
+  <!----
+      FOOTER
+    ----->
+  <footer class="footer ">
+    <div class="container ">
+      <div class="row text-center invert_color_theme">
+        <div class="col-sm-12 social-icons">
+          <a class="btn btn-social-icon btn-sm btn-twitter"><i class="fa fa-twitter"></i></a>
+          <a class="btn btn-social-icon btn-sm btn-facebook"><i class="fa fa-facebook"></i></a>
+          <a class="btn btn-social-icon btn-sm btn-instagram"><i class="fa fa-instagram"></i></a>
+          <a class="btn btn-social-icon btn-sm btn-vk"><i class="fa fa-vk"></i></a>
+        </div>
+
+
+      </div>
+    </div>
+    <small>© ВСЕ ПРАВА ЗАЩИЩЕНЫ</small>
+  </footer>
+
+
+  <app-modal></app-modal>
 </div>

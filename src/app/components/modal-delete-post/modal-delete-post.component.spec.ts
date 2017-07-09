@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalViewComponent } from './modal-view.component';
+import { ModalDeletePost } from './modal-delete-post.component';
 
-describe('ModalViewComponent', () => {
-  let component: ModalViewComponent;
-  let fixture: ComponentFixture<ModalViewComponent>;
+describe('ModalDeletePost', () => {
+  let component: ModalDeletePost;
+  let fixture: ComponentFixture<ModalDeletePost>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalViewComponent ]
+      declarations: [ ModalDeletePost ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalViewComponent);
+    fixture = TestBed.createComponent(ModalDeletePost);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -13,7 +13,7 @@ import { NoteComponent } from './components/note/note.component';
 import { ImagePathPipe } from './pipes/image-path.pipe';
 import { MakeShortTextPipe } from './pipes/make-short-text.pipe';
 import { ModalComponent } from './common/modal/modal.component';
-import { ModalViewComponent } from './components/modal-view/modal-view.component';
+import { ModalAddPost } from './components/modal-add-post/modal-add-post.component';
 import {ModalService} from './common/services/modal.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdCardModule, MdButtonModule} from '@angular/material';
@@ -22,7 +22,8 @@ import { PhotosNumberPipe } from './pipes/photos-number.pipe';
 import { MatchHeightDirective } from './directives/match-height.directive';
 import { RestoreHeightDirective } from './directives/restore-height.directive';
 import { IconButtonComponent } from './common/components/icon-button/icon-button.component';
-import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.component';
+import { ModalDeletePost } from './components/modal-delete-post/modal-delete-post.component';
+import { PostFilterPipe } from './pipes/post-filter.pipe';
 
 
 @NgModule({
@@ -33,12 +34,13 @@ import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.com
     ImagePathPipe,
     MakeShortTextPipe,
     ModalComponent,
-    ModalViewComponent,
+    ModalAddPost,
     PhotosNumberPipe,
     MatchHeightDirective,
     RestoreHeightDirective,
     IconButtonComponent,
-    ModalDialogComponent
+    ModalDeletePost,
+    PostFilterPipe
   ],
   imports: [
     NgbModule,
@@ -47,11 +49,12 @@ import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.com
     MdButtonModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule
   ],
   entryComponents:[
-    ModalViewComponent,
-    ModalDialogComponent
+    ModalAddPost,
+    ModalDeletePost
   ],
   providers: [
     DataService,
@@ -74,8 +77,8 @@ import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.com
       useValue: environment.menuKey
     },
     {
-      provide: 'iconsKey',
-      useValue: environment.iconsKey
+      provide: 'cityKey',
+      useValue: environment.cityKey
     },
     {
       provide: 'notesKey',

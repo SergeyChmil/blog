@@ -1,31 +1,32 @@
 import {INote, INoteImage} from '../../interfaces/inote';
 export class FactoryNote implements INote{
 
-  id: number;
-  icon: string;
-  region: string;
-  header: string;
-  date: string;
+  pk: number;
+  city: string;
+  region: number;
+  name: string;
+  publication_date: string;
   body: string;
-  shortBody: string;
+  // shortBody: string;
   images: INoteImage[];
 
 
   public constructor(
   icon: string,
-  region: string,
-  header: string,
-  date: string,
+  region: number,
+  name: string,
+  publication_date: string,
   body: string,
-  shortBody: string = null,
+  // shortBody: string = null,
   images: INoteImage[]
   ){
-    this.icon = icon;
-    this.region = icon;
-    this.header = header;
-    this.date = date;
+    this.city = icon;
+    this.region = region;
+    // this.region = 0;
+    this.name = name;
+    this.publication_date = publication_date;
     this.body = body;
-    this.shortBody = shortBody;
+    // this.shortBody = shortBody;
     this.images = [];
   }
 
