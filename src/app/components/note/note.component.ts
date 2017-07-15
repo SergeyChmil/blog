@@ -34,6 +34,8 @@ export class NoteComponent implements OnInit {
       this.checkClickedItem(data);
     });
     this.order = this._context.pk + 1;
+
+    console.log(this._context)
   }
 
   public checkClickedItem(id:number, ){
@@ -63,6 +65,11 @@ export class NoteComponent implements OnInit {
   //ToDo сделать класс, собирающий в себя все вызовы модальных окон
   onDeleteClick(){
     this._sharedService.deletePostActivator.next(this._context);
+  }
+
+  onEditClick(){
+    console.log(this._context);
+    this._sharedService.editPostActivator.next(this._context);
   }
 
 }

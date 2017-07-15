@@ -6,13 +6,13 @@ export interface INoteImage {
 
 export interface INote {
   pk: number;
-  city: string;
+  city: number;
   region: number;
   name: string;
   publication_date: string;
   body: string;
   // shortBody?: string;
-  images?: INoteImage[];
+  images?: string;
 }
 
 // export interface IIcons {

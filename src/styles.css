@@ -98,6 +98,19 @@ body, html {
               NOTES
 */
 
+#onePhotoContainer{
+  /*height: 12rem;*/
+  /*max-height: 50px;*/
+  width: 100%;
+  margin-top: 0;
+  background-image: url("assets/images/chinese_pattern.jpg");
+  background-repeat: repeat;
+}
+/*.note-image{*/
+  /*max-height: 30rem;*/
+  /*width: auto !important;*/
+/*}*/
+
 .my-card-header{
   white-space: nowrap;
   overflow:hidden;
@@ -167,6 +180,13 @@ app-note{
 @media screen and (max-width: 780px){
   app-note {
     width: 98%;
+  }
+  .total-container{
+    min-width: 507px;
+  }
+  .app-container{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 

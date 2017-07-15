@@ -9,6 +9,7 @@ export const environment = {
   menuKey: 'regions/',
   notesKey: 'posts/',
   cityKey:'cities/',
+  imageKey:'images/',
   iconsImageKey: 'assets/images/icons/',
   commentsKey: 'comments',
   appImagesURL: '../../../assets/images/notes_illustrations/',

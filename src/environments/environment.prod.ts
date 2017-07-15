@@ -4,6 +4,7 @@ export const environment = {
   menuKey: '/menu/',
   notesKey: '/notes/',
   cityKey:'/icons/',
+  imageKey:'images/',
   iconsImageKey: 'assets/images/icons/',
   commentsKey: '/comments',
   appImagesURL: '',

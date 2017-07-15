@@ -43,6 +43,22 @@ export class AppComponent implements OnInit{
       this.deleteNote(note);
     });
 
+    this._sharedService.editPostActivator.subscribe(note =>{
+      // console.log('Edit post activator')
+      // console.log(note)
+      this.openAddModal(note);
+    });
+
+    this._sharedService.deleteImageActivator.subscribe(link =>{
+      console.log('Delete image activator')
+      console.log(link)
+      this._dataService.deleteImage(link);
+    });
+
+    this._sharedService.editPostProvider.subscribe(note =>{
+      this.editNote(note);
+    })
+
     this._sharedService.modalCreatePostProvider.subscribe(note =>{
       this.createNote(note);
     })
@@ -63,15 +79,22 @@ export class AppComponent implements OnInit{
   createNote(note:INote){
     this._dataService.createNote(note).subscribe(
       data =>{ this.loadNotes();},
-      error => console.log('Notes Dashboard: Creating post error')
+      error => console.log('Notes Dashboard: Create post error')
     )
   }
 
   deleteNote(note:INote){
     this._dataService.deleteNote(note.pk).subscribe(
       data =>{ this.loadNotes();},
-      error => console.log('Notes Dashboard: Deleting post error')
+      error => console.log('Notes Dashboard: Delete post error')
     );
+  }
+
+  editNote(note:INote){
+    this._dataService.editNote(note).subscribe(
+      data =>{ this.loadNotes();},
+      error => console.log('Notes Dashboard: Edit post error')
+    )
   }
 
   ngOnInit(){
@@ -94,6 +117,8 @@ export class AppComponent implements OnInit{
   /// Работа с модальными окнами
   public openAddModal(note:INote):void{
     // let param:any[]
+    console.log('EDIT NOTE')
+    console.log(note)
     this._modalService.open({
       component: ModalAddPost,
       context:{note},

@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import {ModalService} from '../services/modal.service';
 import {SharedService} from '../../services/shared.service';
+import {INote} from '../../interfaces/inote';
 
 @Component({
   selector: 'app-modal',
@@ -19,10 +20,10 @@ export class ModalComponent {
   public childComponent: ComponentFactory<any>;
   public modalContext: ComponentRef<any>;
 
+
   public constructor(private _modalService: ModalService, private _componentFactoryResolver: ComponentFactoryResolver,
                      private _sharedService: SharedService) {
     this._modalService.modalSequence$$.subscribe(({component, context, params}: {component: any, context: any, params: any[]}) => {
-      // console.log('modal content')
       this.isOpen = true;
       this.childComponent = this._componentFactoryResolver.resolveComponentFactory(component);
       this.modalContext = this.modal.createComponent(this.childComponent);

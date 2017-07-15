@@ -24,6 +24,7 @@ import { RestoreHeightDirective } from './directives/restore-height.directive';
 import { IconButtonComponent } from './common/components/icon-button/icon-button.component';
 import { ModalDeletePost } from './components/modal-delete-post/modal-delete-post.component';
 import { PostFilterPipe } from './pipes/post-filter.pipe';
+import { NoteContextPickerDirective } from './directives/note-context-picker.directive';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { PostFilterPipe } from './pipes/post-filter.pipe';
     RestoreHeightDirective,
     IconButtonComponent,
     ModalDeletePost,
-    PostFilterPipe
+    PostFilterPipe,
+    NoteContextPickerDirective
   ],
   imports: [
     NgbModule,
@@ -83,6 +85,10 @@ import { PostFilterPipe } from './pipes/post-filter.pipe';
     {
       provide: 'notesKey',
       useValue: environment.notesKey
+    },
+    {
+      provide: 'imageKey',
+      useValue: environment.imageKey
     },
     {
       provide: 'commentsKey',

@@ -3,13 +3,13 @@ import {INote, INoteImage} from '../interfaces/inote';
 export class Note implements INote{
 
   public pk:number;
-  public city:string;
+  public city:number;
   public region:number;
   public name:string;
   public publication_date:string;
   public body:string;
   // public shortBody:string;
-  public images:INoteImage[];
+  public images:string;
 
 
   public constructor(){}

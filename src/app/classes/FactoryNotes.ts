@@ -6,12 +6,12 @@ export default class FactoryNotes{
 
     let newNote:Note = {
       pk:null,
-      city: 'default',
+      city: null,
       region: null,
       name: 'default',
       publication_date: 'default',
       body: 'default',
-      images: []
+      images: 'default'
     };
 
     if(obj.pk) newNote.pk = obj.pk;
